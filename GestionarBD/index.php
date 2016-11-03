@@ -8,53 +8,90 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title></title>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+        <link rel="stylesheet" href="../patata.css">;
+
     </head>
     <body>
-        <?php
-        function borraDatabase($conexion) {
-            $conexion->query("Drop database alumnos");
-        }
-        //se crea un objeto de la clase mysqli con la direccion ip y un pass.
-        $conexion = new mysqli("localhost", "root");
-
-        if ($conexion->connect_error) {
-            echo "Error de conexion con numero ----> " . $conexion->connect_errno . "</br>" . $conexion->connect_error;
-        } else {
-            echo "<h2>Se ha establecido la conexion.</h2>";
-            $consulta = "CREATE DATABASE alumnos default character set UTF8 collate UTF8_general_ci;";
-
-            if ($conexion->query($consulta)) {
-                echo "<h2>La base de datos se ha creado con exito.</h2>";
-                $conexion->close();
-                $conexion = new mysqli("localhost", "root", "", "alumnos");
-                $consulta = "CREATE TABLE alumno(
-                        codigo int not null auto_increment primary key,
-                        nombre varchar(30) not null,
-                        domicilio varchar(30) not null,
-                        provincia varchar (20) not null) 
-                        engine=myisam"
-                ;
-                if ($conexion->query($consulta)) {
-                    echo "<h2>Se ha creado la tabla de la base de datos</h2>";
-                    $conexion->query("INSERT INTO alumno VALUES
-                            ('','edgar','grijota','palencia'),
-                            ('','isma','palencia','palencia'),
-                            ('','paco','granada','palencia');");
-                    
-                    
-                    
-                    
-                } else {
-                    echo "<h2>No se ha podido crear la tabla</h2>";
-                }
-            } else {
-                echo "<h2>No se ha podido crear la base de datos</h2>";
-            }
-        }
+        <div id="cabecera">
+            <h1>Patata is love patata is life FTW</h1>
+            <div class="sub-componente" style="position:relative;bottom:75px;left:700px;text-align:center;padding:10px;">
+                <?php
+                $visitante = rand(500, 200000);
+                echo "<h4>Eres el visitante: $visitante</h4>"
+                ?>
+            </div>
+        </div>
         
+        <div class="container">
+        <table class="table">
+            <tr class="danger">
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Matricula</th>
+                <th>Precio</th>
+            </tr>
+            
+        <?php
+        $conexion = new mysqli('localhost', 'root', '', 'vehiculos');
+        $sql = "SELECT * FROM coches";
+        $resultado = $conexion->query($sql);
+        
+  
+
+        while($fila = $resultado->fetch_array(MYSQLI_NUM)){
+            
+            printf("<tr><td>%s</td> <td>%s</td> <td>%s</td> <td>%s €</td></tr>",$fila[1],$fila[2],$fila[3],$fila[4]);
+        }
+        $resultado->free();
         ?>
-        <form action="control.php" method="POST">
-            <input type="submit" value="Borrar DB"/> 
-        </form>
-    </body>
+            
+        
+                
+            </table>
+        <hr/>
+        <table class="table table-striped table-responsive">
+            <tr class="info">
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Matricula</th>
+                <th>Precio</th>
+            </tr>
+            
+        <?php
+        $resultado = $conexion->query($sql);
+        
+        while($fila = $resultado->fetch_array(MYSQLI_ASSOC)){
+            
+            printf("<tr><td>%s</td> <td>%s</td> <td>%s</td> <td>%s €</td></tr>",$fila['marca'],$fila['modelo'],$fila['matricula'],$fila['precio']);
+        }
+        $resultado->free();
+        ?>
+            
+        
+                
+            </table>
+        <hr/>
+        <table class="table table-bordered table-hover">
+            <tr class="warning">
+                <th>Marca</th>
+                <th>Modelo</th>
+                <th>Matricula</th>
+                <th>Precio</th>
+            </tr>
+            
+        <?php
+        $resultado = $conexion->query($sql);
+        while($fila = $resultado->fetch_array(MYSQLI_BOTH)){
+            
+            printf("<tr><td>%s</td> <td>%s</td> <td>%s</td> <td>%s €</td></tr>",$fila['marca'],$fila[2],$fila['matricula'],$fila[4]);
+        }
+        $resultado->free();
+        ?>
+            
+        
+                
+            </table>
+        </div>
+       </body>
 </html>
