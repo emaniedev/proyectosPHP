@@ -1,0 +1,66 @@
+
+/*
+#####   Stilo del header    #####
+*/
+header {
+    background-color: #003366;
+    color: #999999;
+}
+header small {
+    color: #ff9900;
+}
+
+/*
+#####   Stilo de Navbar     #####
+*/
+nav {
+ 
+    list-style-image: none;
+    list-style-type: none !important;
+}
+
+nav ul {
+   
+    list-style-image: none;
+    list-style-type: none;
+}
+nav li {
+    display: inline;
+}
+
+
+
+/*
+#####   Stilo de Botones    #####
+*/
+.btn {
+    background-image: none;
+    background-color: #ff9900 !important; 
+}
+.btn:hover {
+    background-color: #ffd387 !important;
+    border-color: #ffa100 !important;
+}
+
+/*
+#####   Stilo de Formularios    #####
+*/
+.form-control {
+    border-color: #ffa100 !important;
+    box-shadow: inset 0px 1px 1px rgba(0,0,0,0.075), 0px 0px 8px rgba(255,171,33,0.6);
+     
+}
+
+
+
+
+/*
+
+
+
+*/
+/* 
+    Created on : 10-nov-2016, 18:57:55
+    Author     : Mazhe <your.name at your.org>
+*/
+
