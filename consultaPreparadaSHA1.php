@@ -1,3 +1,4 @@
+<?php require './includes/header.php';?>
 <?php
 
 $nombre = $_POST['nombre'];
