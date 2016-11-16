@@ -1,0 +1,79 @@
+a:hover {
+    text-decoration: none;
+}
+#cabecera {
+    background-color: orange;
+    height: auto;
+    padding: 30px;
+    border: solid black 2px;
+    
+}
+
+.componente {
+border: solid 2px orange;
+margin: 5px;
+background-color: grey;
+padding: 25px;
+float: left;
+width: 250px;
+
+}
+
+.panel{
+    border: solid 2px orange;
+    margin: 5px;
+    background-color: grey;
+    padding: 25px;
+    
+}
+.componente>h3 {
+    text-align: center;
+}
+
+.sub-componente {
+border: solid 2px orange;
+border-radius: 40px;
+margin: 5px;
+background-color: grey;
+padding: 25px;
+padding-top: 10px;
+float: left;
+width: 250px;
+
+
+}
+.sub-componente-grande{
+border: solid 2px orange;
+border-radius: 40px;
+margin: 5px;
+background-color: grey;
+padding: 25px;
+padding-top: 10px;
+float: left;
+width: 250px;
+max-height: 600px;
+overflow: scroll;
+}
+
+.componente-grande {
+border: solid 2px orange;
+margin: 5px;
+background-color: grey;
+padding: 25px;
+float: left;
+width: 250px;
+max-height: 600px;
+overflow: scroll;
+
+}
+.item {
+    border: solid 2px orange;
+    margin: 5px;
+    background-color: grey;
+    padding: 15px;
+}
+
+.compact {
+    font-size: 8px;
+    
+}
