@@ -46,7 +46,24 @@ and open the template in the editor.
             } catch (Exception $ex) {
             echo "Se ha producido el siguiente error: ". $ex->getMessage()."</br>";
             echo "El codigo del error es: ".$ex->getCode()."</br>";
-}
+            }
+            
+            $val = 500;
+            echo "</br>";
+            echo "</br>";
+            echo "</hr>";
+            try {
+                if ($val == 0){
+                    throw new Exception("<b>División por cero.</b></br>");
+                }
+                if ($val > 800){
+                    throw new Exception("<b>División por mas de 800.</b></br>");
+                }
+                echo "El valor $val es valido"."</br>";
+            } catch (Exception $ex) {
+                echo "Se ha producido el siguiente error: ". $ex->getMessage()."</br>";
+            echo "El codigo del error es: ".$ex->getCode()."</br>";
+            }
         ?>
         </p>
     </body>

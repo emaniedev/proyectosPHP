@@ -1,17 +1,22 @@
+a:hover {
+    text-decoration: none;
+}
 #cabecera {
     background-color: orange;
     height: auto;
     padding: 30px;
     border: solid black 2px;
+    
 }
 
 .componente {
 border: solid 2px orange;
-margin: 5px;
+
 background-color: grey;
 padding: 25px;
 float: left;
 width: 250px;
+margin: auto;
 
 }
 .componente>h3 {
